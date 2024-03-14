@@ -128,8 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="0314_time.c" />
-    <ClCompile Include="task _1.c" />
-    <ClCompile Include="소스.c" />
+    <ClCompile Include="0312.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
