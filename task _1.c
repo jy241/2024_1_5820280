@@ -1,7 +1,20 @@
-#include <stdio.h>
-int main() {
+#include<stdio.h>
 
-	int i, n;
+    int main() {
 
-	return 0;
-}
+        int i = 0, n = 0; 
+        int sum = 0;
+
+        for (i = 2; i <= 100; i++) {
+            for (n = 2; n < i; n++) {  
+                if (i % n == 0)      
+                    break;            
+            }
+            if (i == n)  
+                sum += i;
+        }
+
+        printf("소수들의 합: %d\n", sum);
+
+        return 0;
+    }
