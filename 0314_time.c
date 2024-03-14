@@ -1,4 +1,4 @@
-/* #include<stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
 
@@ -27,4 +27,4 @@ int main() {
     printf("수행시간은 %f초 입니다.\n", duration);
 
     return 0;
-} */
+}
