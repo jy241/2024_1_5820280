@@ -18,5 +18,11 @@
     <ClCompile Include="task _1.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="0314_time.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

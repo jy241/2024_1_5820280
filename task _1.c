@@ -1,4 +1,4 @@
-#include<stdio.h>
+/* #include<stdio.h>
 
     int main() {
 
@@ -17,4 +17,4 @@
         printf("소수들의 합: %d\n", sum);
 
         return 0;
-    }
+    } */
