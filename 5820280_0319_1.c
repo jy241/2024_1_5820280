@@ -1,4 +1,4 @@
-#include <stdio.h>
+/* #include <stdio.h>
 #include <time.h>
 
 //반복
@@ -37,4 +37,4 @@ int main(int argc, char* argv[]) {
     printf("재귀를 사용한 20!: %lld\n", result_rec);
     printf("걸린 시간: %f%n", (float)(end - start) / CLOCKS_PER_SEC);
 	return 0;
-}
+} */
