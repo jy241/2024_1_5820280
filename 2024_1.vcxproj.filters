@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="polynomial.c">
+    <ClCompile Include="곱셈.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="곱셈_2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
