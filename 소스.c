@@ -1,11 +1,11 @@
-#include <stdio.h>
+/* #include <stdio.h>
 #define MAX_TERMS 101
 
 struct {
 	float coef;
 	int expon;
-} terms[MAX_TERMS] = { {8.0, 3},{7.0, 1}, {1.0, 0},
-						{10.0,3}, {3.0, 2}, {1.0, 0} }; //index 5까지 사용
+} terms[MAX_TERMS] = { {4.0, 3},{3.0, 2}, {2.0, 1}, {1.0, 0},
+						{3.0, 2}, {2.0, 1}, {8.0, 0} }; //index 5까지 사용
 
 int avail = 6; //index 6부터 비어있음
 void print_poly(int s, int e);
@@ -33,7 +33,7 @@ int main() {
 	terms[avail].expon = expon;
 } */
 
-void poly_add2(int As, int Ae, int Bs, int Be, int *Csp, int *Cep){
+/* void poly_add2(int As, int Ae, int Bs, int Be, int* Csp, int* Cep) {
 	int c_start = avail;
 
 	while ((As <= Ae) && (Bs <= Be)) {
@@ -72,7 +72,7 @@ void poly_add2(int As, int Ae, int Bs, int Be, int *Csp, int *Cep){
 	}
 	*Csp = avail; //c_start
 	*Cep = c_start - 1;
-	avail = c_start; //지움 //c_start++ 다 지워야함?ㅌ	
+	avail = c_start; //지움 //c_start++ 다 지워야함?
 	} 
 
 }
@@ -82,4 +82,4 @@ void print_poly(int s, int e) {
 		printf("%3.1fx^%d + ", terms[i].coef, terms[i].expon);
 	}
 	printf("%3.1f\n", terms[e].coef); //printf("%3.1fx^%d + ", terms[e].coef, terms[e].expon);
-}
+} */
