@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="poly_add.c" />
     <ClCompile Include="poly_mul.c" />
+    <ClCompile Include="poly_mul_2.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

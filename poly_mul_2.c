@@ -1,4 +1,4 @@
-/* #include <stdio.h>
+#include <stdio.h>
 #define MAX(a,b) (((a) > (b))?(a):(b))
 #define MAX_DEGREE 101
 
@@ -26,15 +26,15 @@ polynomial poly_mul(polynomial A, polynomial B) { //곱하는 함수
 }
 
 void print_poly(polynomial p) { //다항식 출력하는 함수
-    int i; 
+    int i;
     for (i = p.degree; i > 0; i--)
         printf("%3.1fx^%d + ", p.coef[p.degree - i], i);
     printf("%3.1f \n", p.coef[p.degree]);
 }
 
 int main() {
-    polynomial a = { 3,{4,3,2,1} };
-    polynomial b = { 2,{3,2,8} };
+    polynomial a = { 6,{7,0,0,5,9,0,1} };
+    polynomial b = { 3,{5,2,1,10} };
     polynomial c;
 
     printf("다항식 A: ");
@@ -45,6 +45,6 @@ int main() {
     printf("--------------------------------------------\n");
     printf("다항식 A * B: ");
     print_poly(c); //다항식 c 출력
-    
+
     return 0;
-} */
+}
