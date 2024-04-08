@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="소스.c" />
+    <ClCompile Include="0403 덧셈.c" />
+    <ClCompile Include="0403_mul.c" />
+    <ClCompile Include="연습.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,4 +1,4 @@
-#include <stdio.h>
+/* #include <stdio.h>
 #define MAX_TERMS 101
 
 struct {
@@ -23,15 +23,6 @@ int main() {
 	printf("A+B = ");
 	print_poly(Cs, Ce);
 }
-
-/* void attach(float coef, int expon) {
-	if (avail > MAX_TERMS) {
-		print(stderr, "Too long terms\n");
-		exit(1);
-	}
-	terms[avail].coef = coef;
-	terms[avail].expon = expon;
-} */
 
 void poly_add2(int As, int Ae, int Bs, int Be, int *Csp, int *Cep){
 	int c_start = avail;
@@ -82,4 +73,4 @@ void print_poly(int s, int e) {
 		printf("%3.1fx^%d + ", terms[i].coef, terms[i].expon);
 	}
 	printf("%3.1f\n", terms[e].coef); //printf("%3.1fx^%d + ", terms[e].coef, terms[e].expon);
-}
+} */
