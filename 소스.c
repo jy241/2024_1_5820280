@@ -1,85 +1,76 @@
 #include <stdio.h>
-#define MAX_TERMS 101
+#include <time.h>
+#include <stdlib.h>
+#define MAX_STACK_SIZE 5
 
-struct {
-	float coef;
-	int expon;
-} terms[MAX_TERMS] = { {8.0, 3},{7.0, 1}, {1.0, 0},
-						{10.0,3}, {3.0, 2}, {1.0, 0} }; //index 5까지 사용
+typedef int element; // 데이터의 자료형
+typedef struct {
+    element data[MAX_STACK_SIZE];
+    int top;
+} StackType;
 
-int avail = 6; //index 6부터 비어있음
-void print_poly(int s, int e);
-void poly_add2(int As, int Ae, int Bs, int Be, int* Csp, int* Cep);
+void int_stack(StackType* s) {
+    s->top = -1;
+}
 
+int is_full(StackType* s) {
+    return (s->top == (MAX_STACK_SIZE - 1)); // if(top == MAX_STACK_SIZE - 1) return -1;, else return 0;
+}
+
+int is_empty(StackType* s) {
+    return (s->top == -1); // 위와 같은 문장
+}
+
+// push :
+void push(StackType* s, element item) {
+    if (is_full(s)) {
+        printf("Stack is full\n");
+        return;
+    }
+    else {
+        s->data[++(s->top)] = item;
+    }
+}
+
+element pop(StackType* s) {
+   
+    if (is_empty(s)) {
+        fprintf(stderr, "Stack is empty\n");
+        exit(1);
+    }
+    else {
+        return s->data[(s->top)--];
+    }
+}
+void print_stack(StackType* s) {
+    printf("Current Stack elements: ");
+    for (int i = s->top; i >= 0; i--) {
+        printf("%d ", s->data[i]);
+    }
+    printf("\n");
+}
 int main() {
+    StackType s;
+    int_stack(&s);
 
-	int Cs, Ce;
-	printf("A = ");
-	print_poly(0, 2);
-	printf("B = ");
-	print_poly(3, 5);
+    srand(time(NULL)); // 프로그램 전체에서 한 번만 호출
 
-	poly_add2(0, 2, 3, 5, &Cs, &Ce);
-	printf("A+B = ");
-	print_poly(Cs, Ce);
-}
+    for (int i = 0; i < 30; i++) {
+        int rand_num = rand() % 100 + 1;
+        int data; 
 
-/* void attach(float coef, int expon) {
-	if (avail > MAX_TERMS) {
-		print(stderr, "Too long terms\n");
-		exit(1);
-	}
-	terms[avail].coef = coef;
-	terms[avail].expon = expon;
-} */
+        if ((rand_num % 2) == 0) { // 짝수
+            push(&s, rand_num);
+            printf("Random number: %d\n", rand_num);
+            printf("Push %d\n", rand_num);
+            print_stack(&s);
+        }
+        else { // 홀수
+            data = pop(&s);
+            printf("Random number: %d\n", rand_num);
+            printf("Pop %d\n", data);
+        }
 
-void poly_add2(int As, int Ae, int Bs, int Be, int *Csp, int *Cep){
-	int c_start = avail;
-
-	while ((As <= Ae) && (Bs <= Be)) {
-		if (terms[As].expon > terms[Bs].expon) {
-			terms[c_start].expon = terms[As].expon;
-			terms[c_start].coef = terms[As].coef + terms[Bs].coef;
-			//attach(terms[As].coef, terms[As].expon); //간단하게 요약 가능
-			As++;
-			c_start++;
-		}
-		else if (terms[As].expon == terms[Bs].expon) {
-			terms[c_start].expon = terms[As].expon;
-			terms[c_start].coef = terms[As].coef + terms[Bs].coef;
-			As++;
-			Bs++;
-			c_start++;
-		}
-
-		else {
-			terms[c_start].expon = terms[Bs].expon;
-			terms[c_start].coef = terms[Bs].coef;
-			Bs++;
-			c_start++;
-		}
-	for (; As <= Ae; As++) {
-		terms[c_start].expon = terms[As].expon;
-		terms[c_start].coef = terms[As].coef;
-		As++;
-		c_start++;
-	}
-	for (; Bs <= Be; Bs++) {
-		terms[c_start].expon = terms[Bs].expon;
-		terms[c_start].coef = terms[Bs].coef;
-		Bs++;
-		c_start++;
-	}
-	*Csp = avail; //c_start
-	*Cep = c_start - 1; //avail -1 
-	avail = c_start; //지움 //c_start++ 다 지워야함?ㅌ	
-	} 
-
-}
-
-void print_poly(int s, int e) {
-	for (int i = s; i < e; i++) {
-		printf("%3.1fx^%d + ", terms[i].coef, terms[i].expon);
-	}
-	printf("%3.1f\n", terms[e].coef); //printf("%3.1fx^%d + ", terms[e].coef, terms[e].expon);
+        return 0;
+    }
 }
