@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="과제.c" />
+    <ClCompile Include="malloc실습.c" />
     <ClCompile Include="소스.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
