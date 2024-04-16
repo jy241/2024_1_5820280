@@ -15,6 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="수업시간.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="task.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="소스.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
