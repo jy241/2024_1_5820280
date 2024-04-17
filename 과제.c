@@ -2,91 +2,66 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_STACK_SIZE 5
+#define MAX_SIZE 5
 
-typedef int element;
-
-typedef struct {
-    element* data;
-    int capacity;
+struct Stack {
+    int* items;
     int top;
-} Stack;
+    int size;
+};
 
-Stack* create_stack() {
-    Stack* stack = (Stack*)malloc(sizeof(Stack));
-    if (stack == NULL) {
-        fprintf(stderr, "Memory allocation failed\n");
-        exit(EXIT_FAILURE);
-    }
-    stack->data = (element*)malloc(MAX_STACK_SIZE * sizeof(element));
-    if (stack->data == NULL) {
-        fprintf(stderr, "Memory allocation failed\n");
-        exit(EXIT_FAILURE);
-    }
-    stack->capacity = MAX_STACK_SIZE;
+void initialize(struct Stack* stack) {
     stack->top = -1;
-    return stack;
+    stack->size = 1; // Initial size
+    stack->items = (int*)malloc(stack->size * sizeof(int));
 }
 
-void free_stack(Stack* stack) {
-    free(stack->data);
-    free(stack);
+int isFull(struct Stack* stack) {
+    return stack->top == stack->size - 1;
 }
 
-int is_full(Stack* stack) {
-    return (stack->top == stack->capacity - 1);
+int isEmpty(struct Stack* stack) {
+    return stack->top == -1;
 }
 
-int is_empty(Stack* stack) {
-    return (stack->top == -1);
-}
-
-void push(Stack* stack, element item) {
-    if (is_full(stack)) {
-        // ½ºÅÃÀÌ °¡µæ Ã¡À» ¶§, capacity¸¦ µÎ ¹è·Î ´Ã¸²
-        stack->capacity *= 2;
-        stack->data = (element*)realloc(stack->data, stack->capacity * sizeof(element));
-        if (stack->data == NULL) {
-            fprintf(stderr, "Memory reallocation failed\n");
-            exit(EXIT_FAILURE);
-        }
+void push(struct Stack* stack, int value) {
+    if (isFull(stack)) {
+        stack->size *= 2; // Double the size
+        stack->items = (int*)realloc(stack->items, stack->size * sizeof(int));
     }
-    stack->data[++(stack->top)] = item;
+    stack->top++;
+    stack->items[stack->top] = value;
+    printf("Pushed %d\n", value);
 }
 
-element pop(Stack* stack) {
-    if (is_empty(stack)) {
-        fprintf(stderr, "Stack is empty\n");
-        exit(EXIT_FAILURE);
+int pop(struct Stack* stack) {
+    if (isEmpty(stack)) {
+        printf("Stack is empty\n");
+        return -1;
     }
-    return stack->data[(stack->top)--];
-}
-
-void print_stack(Stack* stack) {
-    printf("Current Stack elements: ");
-    for (int i = stack->top; i >= 0; i--) {
-        printf("%d ", stack->data[i]);
+    else {
+        int popped = stack->items[stack->top];
+        stack->top--;
+        printf("Popped %d\n", popped);
+        return popped;
     }
-    printf("\n");
 }
 
 int main() {
     srand(time(NULL));
-    Stack* stack = create_stack();
+    struct Stack stack;
+    initialize(&stack);
 
     for (int i = 0; i < 30; i++) {
-        int rand_num = rand() % 100 + 1;
-        if ((rand_num % 2) == 0) {
-            push(stack, rand_num);
-            printf("Pushed %d\n", rand_num);
+        int random_number = rand() % 100 + 1;
+        if (random_number % 2 == 0) {
+            push(&stack, random_number);
         }
         else {
-            element data = pop(stack);
-            printf("Popped %d\n", data);
+            pop(&stack);
         }
-        print_stack(stack);
     }
 
-    free_stack(stack);
+    free(stack.items); // Free dynamically allocated memory
     return 0;
 }
