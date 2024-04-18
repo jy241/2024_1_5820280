@@ -15,6 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="중위.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="과제.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="과제 최종.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="소스.c">
       <Filter>소스 파일</Filter>
     </ClCompile>

@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="과제 최종.c" />
+    <ClCompile Include="과제.c" />
     <ClCompile Include="소스.c" />
+    <ClCompile Include="중위.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
