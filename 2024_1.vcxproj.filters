@@ -18,5 +18,11 @@
     <ClCompile Include="doubleLinkedCircularList.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="실습.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="과제.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

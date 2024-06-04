@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="doubleLinkedCircularList.c" />
+    <ClCompile Include="과제.c" />
+    <ClCompile Include="실습.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
